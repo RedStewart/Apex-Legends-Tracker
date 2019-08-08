@@ -13,13 +13,32 @@
 body {
   background: #fff;
   color: #fff;
-  line-height: 1.6;
 }
 
 /* Custom */
 
 .img-logo {
-  width: 300px;
+  width: 150px;
+}
+
+.form-search h1 {
+  color: #fff;
+  margin-top: 0.75rem;
+}
+
+.form-search label {
+  font-size: 1.25rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.item-search {
+  margin-bottom: 1rem;
+}
+
+.btn-search {
+  width: 100%;
+  margin-top: 1.25rem;
 }
 
 #page-bg {
@@ -44,7 +63,9 @@ ul {
 }
 
 .container {
-  max-width: 960px;
+  background: rgba(105, 105, 105, 0.4);
+  border-radius: 10px;
+  max-width: 500px;
   margin: 1rem auto;
   overflow: auto;
   padding: 0 2rem;
