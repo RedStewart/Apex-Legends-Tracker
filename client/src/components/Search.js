@@ -1,24 +1,29 @@
 import React, { useState, useContext } from 'react';
 import { Form, Icon, Input, Button, Select } from 'antd';
 import AlertContext from '../context/alert/alertContext';
+import ProfileContext from '../context/profile/profileContext';
 import Alert from './layout/Alert';
 
 const Search = ({ history }) => {
   const alertContext = useContext(AlertContext);
+  const profileContext = useContext(ProfileContext);
 
   const [formData, setFormData] = useState({
-    platform: 'Origin',
+    platform: 'origin',
     gamertag: ''
   });
 
   const { Option } = Select;
+  const { getProfile, loading } = profileContext;
+  const { platform, gamertag } = formData;
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
-    if (!formData.gamertag) {
+    if (!gamertag) {
       alertContext.setAlert('Please enter a gamertag', 'error', 3000);
     } else {
-      history.push(`/profile/${formData.platform}/${formData.gamertag}`);
+      await getProfile(platform, gamertag);
+      history.push(`/profile/${platform}/${gamertag}`);
     }
   };
 
@@ -39,7 +44,7 @@ const Search = ({ history }) => {
             defaultValue='Origin'
             onChange={e => setFormData({ ...formData, platform: e })}
           >
-            <Option value='Origin'>Origin</Option>
+            <Option value='origin'>Origin</Option>
             <Option value='psn'>Playstation</Option>
             <Option value='xbl'>Xbox</Option>
           </Select>
@@ -59,14 +64,20 @@ const Search = ({ history }) => {
         </Form.Item>
         <Alert />
         <Form.Item>
-          <Button
-            type='primary'
-            htmlType='submit'
-            size='large'
-            className='btn-search'
-          >
-            Submit
-          </Button>
+          {loading ? (
+            <Button type='primary' size='large' className='btn-search' loading>
+              Loading...
+            </Button>
+          ) : (
+            <Button
+              type='primary'
+              htmlType='submit'
+              size='large'
+              className='btn-search'
+            >
+              Submit
+            </Button>
+          )}
         </Form.Item>
       </Form>
     </div>
