@@ -5,6 +5,7 @@ import ProfileState from './context/profile/ProfileState';
 import Header from './components/Header';
 import Search from './components/Search';
 import Profile from './components/Profile';
+import SideBar from './components/layout/SideBar';
 import './App.css';
 
 const App = () => {
@@ -16,9 +17,10 @@ const App = () => {
     <ProfileState>
       <AlertState>
         <Router>
-          <Header />
-          <div className='container'>
-            <div id='page-bg' />
+          <SideBar />
+          <div id='page-bg' />
+          {/* <Header /> */}
+          {/* <div>
             <Switch>
               <Route exact path='/' component={Search} />
               <Route
@@ -27,7 +29,7 @@ const App = () => {
                 component={Profile}
               />
             </Switch>
-          </div>
+          </div> */}
         </Router>
       </AlertState>
     </ProfileState>

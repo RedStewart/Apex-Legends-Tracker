@@ -1,11 +1,8 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { Form, Icon, Input, Button, Select } from 'antd';
-import AlertContext from '../context/alert/alertContext';
-import ProfileContext from '../context/profile/profileContext';
-import Alert from './layout/Alert';
+import React, { useState, useContext } from 'react';
+import { Layout, Icon, Input, Form, Select, Button } from 'antd';
+import ProfileContext from '../../context/profile/profileContext';
 
-const Search = ({ history, form }) => {
-  const alertContext = useContext(AlertContext);
+const SideBar = ({ history, form }) => {
   const profileContext = useContext(ProfileContext);
 
   const [formData, setFormData] = useState({
@@ -13,10 +10,11 @@ const Search = ({ history, form }) => {
     gamertag: ''
   });
 
+  const { Sider } = Layout;
   const { Option } = Select;
-  const { getProfile, fetchData, profileError } = profileContext;
-  const { platform, gamertag } = formData;
   const { getFieldDecorator, validateFields } = form;
+  const { platform, gamertag } = formData;
+  const { getProfile, fetchData, profileError } = profileContext;
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -33,35 +31,30 @@ const Search = ({ history, form }) => {
   };
 
   return (
-    <div className='form-search container'>
-      <h1>Apex Legends Tracker</h1>
-      <hr />
+    <Sider
+      breakpoint='lg'
+      collapsedWidth='0'
+      onBreakpoint={broken => {
+        console.log(broken);
+      }}
+      onCollapse={(collapsed, type) => {
+        console.log(collapsed, type);
+      }}
+      className='sider'
+    >
+      <div className='logo' />
       <Form onSubmit={e => onSubmit(e)}>
-        <Form.Item className='item-search'>
-          <label htmlFor='platform'>Platform</label>
-          <Select
-            size='large'
-            name='platform'
-            defaultValue='Origin'
-            onChange={e => setFormData({ ...formData, platform: e })}
-          >
-            <Option value='origin'>Origin</Option>
-            <Option value='psn'>Playstation</Option>
-            <Option value='xbl'>Xbox</Option>
-          </Select>
-        </Form.Item>
-
-        <Form.Item className='item-search'>
+        <Form.Item className='form-input'>
           {getFieldDecorator('gamertag', {
             rules: [{ required: true, message: 'Please input a gamertag' }]
           })(
-            <label htmlFor='gamertag'>
+            <label>
               Gamertag
               <Input
                 prefix={
                   <Icon type='user' style={{ color: 'rgba(0,0,0,.25)' }} />
                 }
-                placeholder='Origin ID, PSN ID, Xbox Live gamertag'
+                placeholder='Origin, PSN, Xbox'
                 size='large'
                 name='gamertag'
                 onChange={e =>
@@ -71,8 +64,23 @@ const Search = ({ history, form }) => {
             </label>
           )}
         </Form.Item>
-        <Alert />
-        <Form.Item>
+
+        <Form.Item className='form-input'>
+          <label htmlFor='platform'>Platform</label>
+          <Select
+            className='select-search'
+            name='platform'
+            size='large'
+            defaultValue='Origin'
+            onChange={e => setFormData({ ...formData, platform: e })}
+          >
+            <Option value='origin'>Origin</Option>
+            <Option value='psn'>Playstation</Option>
+            <Option value='xbl'>Xbox</Option>
+          </Select>
+        </Form.Item>
+
+        <Form.Item className='form-input'>
           {fetchData ? (
             <Button type='primary' size='large' className='btn-search' loading>
               Loading...
@@ -88,13 +96,13 @@ const Search = ({ history, form }) => {
               size='large'
               className='btn-search'
             >
-              Submit
+              Search
             </Button>
           )}
         </Form.Item>
       </Form>
-    </div>
+    </Sider>
   );
 };
 
-export default Form.create()(Search);
+export default Form.create()(SideBar);
