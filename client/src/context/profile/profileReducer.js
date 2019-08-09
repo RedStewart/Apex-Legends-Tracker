@@ -1,4 +1,10 @@
-import { GET_PROFILE, PROFILE_ERROR, SET_LOADING, CLEAR_ERROR } from '../types';
+import {
+  GET_PROFILE,
+  PROFILE_ERROR,
+  FETCH_DATA,
+  CLEAR_ERROR,
+  CLEAR_PROFILE
+} from '../types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -6,26 +12,30 @@ export default (state, action) => {
       return {
         ...state,
         profileData: action.payload,
-        loading: false
+        loading: false,
+        fetchData: false
       };
 
-    case SET_LOADING:
+    case FETCH_DATA:
       return {
         ...state,
-        loading: true
+        fetchData: true
       };
 
     case PROFILE_ERROR:
       return {
         ...state,
         profileError: action.payload,
-        loading: false
+        loading: false,
+        fetchData: false
       };
 
     case CLEAR_ERROR:
+    case CLEAR_PROFILE:
       return {
         ...state,
-        profileError: null
+        profileError: null,
+        profileData: null
       };
 
     default:

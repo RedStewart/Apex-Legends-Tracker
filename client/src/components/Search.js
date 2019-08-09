@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Form, Icon, Input, Button, Select } from 'antd';
 import AlertContext from '../context/alert/alertContext';
 import ProfileContext from '../context/profile/profileContext';
@@ -14,7 +15,7 @@ const Search = ({ history, form }) => {
   });
 
   const { Option } = Select;
-  const { getProfile, loading, profileError } = profileContext;
+  const { getProfile, fetchData, profileError } = profileContext;
   const { platform, gamertag } = formData;
   const { getFieldDecorator, validateFields } = form;
 
@@ -23,7 +24,7 @@ const Search = ({ history, form }) => {
 
     validateFields(async (err, values) => {
       if (!err) {
-        const resError = await getProfile(platform, gamertag);
+        const resError = await getProfile(platform, gamertag, true);
 
         if (!resError) {
           history.push(`/profile/${platform}/${gamertag}`);
@@ -73,7 +74,7 @@ const Search = ({ history, form }) => {
         </Form.Item>
         <Alert />
         <Form.Item>
-          {loading ? (
+          {fetchData ? (
             <Button type='primary' size='large' className='btn-search' loading>
               Loading...
             </Button>
