@@ -7,7 +7,7 @@ import { GET_PROFILE, PROFILE_ERROR, CLEAR_ERROR, SET_LOADING } from '../types';
 const ProfileState = props => {
   const initialState = {
     profileData: null,
-    error: null,
+    profileError: null,
     loading: false
   };
 
@@ -29,6 +29,8 @@ const ProfileState = props => {
         type: PROFILE_ERROR,
         payload: err.response.data.msg
       });
+      setTimeout(() => clearError(), 3000);
+      return err.response.data.msg;
     }
   };
 
@@ -36,13 +38,13 @@ const ProfileState = props => {
   const setLoading = () => dispatch({ type: SET_LOADING });
 
   // Clear error
-  // const clearError = () => dispatch({ type: CLEAR_ERROR });
+  const clearError = () => dispatch({ type: CLEAR_ERROR });
 
   return (
     <ProfileContext.Provider
       value={{
         profileData: state.profileData,
-        error: state.error,
+        profileError: state.profileError,
         loading: state.loading,
         getProfile
       }}

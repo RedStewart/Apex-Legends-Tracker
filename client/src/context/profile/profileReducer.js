@@ -18,14 +18,14 @@ export default (state, action) => {
     case PROFILE_ERROR:
       return {
         ...state,
-        error: action.payload,
+        profileError: action.payload,
         loading: false
       };
 
     case CLEAR_ERROR:
       return {
         ...state,
-        error: null
+        profileError: null
       };
 
     default:

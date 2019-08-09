@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Form, Icon, Input, Button, Select } from 'antd';
 import AlertContext from '../context/alert/alertContext';
 import ProfileContext from '../context/profile/profileContext';
 import Alert from './layout/Alert';
 
-const Search = ({ history }) => {
+const Search = ({ history, form }) => {
   const alertContext = useContext(AlertContext);
   const profileContext = useContext(ProfileContext);
 
@@ -14,21 +14,22 @@ const Search = ({ history }) => {
   });
 
   const { Option } = Select;
-  const { getProfile, loading } = profileContext;
+  const { getProfile, loading, profileError } = profileContext;
   const { platform, gamertag } = formData;
+  const { getFieldDecorator, validateFields } = form;
 
   const onSubmit = async e => {
     e.preventDefault();
-    if (!gamertag) {
-      alertContext.setAlert('Please enter a gamertag', 'error', 3000);
-    } else {
-      await getProfile(platform, gamertag);
-      history.push(`/profile/${platform}/${gamertag}`);
-    }
-  };
 
-  const onChange = e => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    validateFields(async (err, values) => {
+      if (!err) {
+        const resError = await getProfile(platform, gamertag);
+
+        if (!resError) {
+          history.push(`/profile/${platform}/${gamertag}`);
+        }
+      }
+    });
   };
 
   return (
@@ -51,22 +52,34 @@ const Search = ({ history }) => {
         </Form.Item>
 
         <Form.Item className='item-search'>
-          <label htmlFor='gamertag'>
-            Gamertag
-            <Input
-              prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,.25)' }} />}
-              placeholder='Origin ID, PSN ID, Xbox Live gamertag'
-              size='large'
-              name='gamertag'
-              onChange={e => onChange(e)}
-            />
-          </label>
+          {getFieldDecorator('gamertag', {
+            rules: [{ required: true, message: 'Please input a gamertag' }]
+          })(
+            <label htmlFor='gamertag'>
+              Gamertag
+              <Input
+                prefix={
+                  <Icon type='user' style={{ color: 'rgba(0,0,0,.25)' }} />
+                }
+                placeholder='Origin ID, PSN ID, Xbox Live gamertag'
+                size='large'
+                name='gamertag'
+                onChange={e =>
+                  setFormData({ ...formData, gamertag: e.target.value })
+                }
+              />
+            </label>
+          )}
         </Form.Item>
         <Alert />
         <Form.Item>
           {loading ? (
             <Button type='primary' size='large' className='btn-search' loading>
               Loading...
+            </Button>
+          ) : profileError ? (
+            <Button type='danger' size='large' className='btn-search'>
+              {profileError}
             </Button>
           ) : (
             <Button
@@ -84,4 +97,4 @@ const Search = ({ history }) => {
   );
 };
 
-export default Search;
+export default Form.create()(Search);
