@@ -42,7 +42,6 @@ const SideBar = ({ history, form }) => {
       }}
       className='sider'
     >
-      <div className='logo' />
       <Form onSubmit={e => onSubmit(e)}>
         <Form.Item className='form-input'>
           {getFieldDecorator('gamertag', {
