@@ -43,6 +43,14 @@ const SideBar = ({ history, form }) => {
       className='sider'
     >
       <Form onSubmit={e => onSubmit(e)}>
+        <Form.Item>
+          <img
+            src={require('../../images/logo.png')}
+            alt=''
+            className='form-img'
+          />
+        </Form.Item>
+
         <Form.Item className='form-input'>
           {getFieldDecorator('gamertag', {
             rules: [{ required: true, message: 'Please input a gamertag' }]

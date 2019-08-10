@@ -29,6 +29,7 @@ body {
   height: 100vh;
   opacity: 0.9;
   min-width: 250px !important;
+  background: var(--primary-color);
 }
 
 .form-input {
@@ -44,6 +45,17 @@ body {
 
 .select-search {
   width: 100%;
+}
+
+.form-img {
+  width: 245px;
+  height: auto;
+  margin-top: 1rem;
+}
+
+.ant-form-explain {
+  color: #3d0000 !important;
+  font-size: 1rem;
 }
 
 .form-search h1 {
