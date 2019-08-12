@@ -29,7 +29,6 @@ body {
   height: 100vh;
   opacity: 0.9;
   min-width: 250px !important;
-  background: var(--primary-color);
 }
 
 .form-input {
@@ -54,7 +53,6 @@ body {
 }
 
 .ant-form-explain {
-  color: #3d0000 !important;
   font-size: 1rem;
 }
 
@@ -75,6 +73,40 @@ body {
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+.legend-container {
+  background: #020202;
+  text-align: center;
+  padding: 1rem 1rem;
+}
+
+.legend-container h3 {
+  color: #767676;
+}
+
+.top-grid {
+  padding: 0 !important;
+}
+
+.top-grid-item {
+  border-right: 1px solid #767676;
+}
+.top-grid-item:last-child {
+  border-right: none;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  padding: 0 2rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
 }
 
 /* End */
