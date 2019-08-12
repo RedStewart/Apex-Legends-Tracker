@@ -126,6 +126,11 @@ body {
   margin: 2rem 0;
 }
 
+.mid-grid-item {
+  /* border: 1px solid red; */
+  border-radius: 100px;
+}
+
 .mid-grid-main-dmg {
   font-size: 3.25rem;
   margin-bottom: 0rem;
