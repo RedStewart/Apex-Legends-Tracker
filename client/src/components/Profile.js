@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Button, Icon } from 'antd';
 import ProfileContext from '../context/profile/profileContext';
 import LegendSelect from './legendSelect/LegendSelect';
-import SelectedLegend from './SelectedLegend';
 
 const Profile = ({ match }) => {
   const profileContext = useContext(ProfileContext);
@@ -36,12 +35,7 @@ const Profile = ({ match }) => {
               className='platform-avatar'
             />
           </h1>
-          {/* <LegendSelect /> */}
-          <div className='grid-3'>
-            <SelectedLegend />
-            <SelectedLegend />
-            <SelectedLegend />
-          </div>
+          <LegendSelect />
         </div>
       )}
 
