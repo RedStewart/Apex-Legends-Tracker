@@ -87,13 +87,25 @@ body {
 
 .top-grid {
   padding: 0 !important;
+  grid-gap: 0 !important;
 }
 
 .top-grid-item {
   border-right: 1px solid #767676;
+  font-size: 0.8rem;
 }
 .top-grid-item:last-child {
   border-right: none;
+}
+
+.top-grid-item h3 span {
+  display: block;
+  line-height: 0.5;
+}
+
+.top-grid-item p {
+  font-size: 2.5rem;
+  margin-bottom: 0;
 }
 
 .grid-3 {

@@ -5,15 +5,21 @@ const SelectedLegend = () => {
     <div className='legend-container'>
       <div className='grid-3 top-grid'>
         <div className='top-grid-item'>
-          <h3>LIFETIME GAMES</h3>
+          <h3>
+            LIFETIME <span>GAMES</span>
+          </h3>
           <p>990</p>
         </div>
         <div className='top-grid-item'>
-          <h3>LIFETIME WINS</h3>
+          <h3>
+            LIFETIME <span>WINS</span>
+          </h3>
           <p>32</p>
         </div>
         <div className='top-grid-item'>
-          <h3>LIFETIME TOP 5S</h3>
+          <h3>
+            LIFETIME <span>TOP 5S</span>
+          </h3>
           <p>990</p>
         </div>
       </div>
