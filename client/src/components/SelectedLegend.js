@@ -52,7 +52,7 @@ const SelectedLegend = () => {
         </div>
       </div>
 
-      <div className='grid-2'>
+      <div className='grid-2 bot-grid'>
         <div>
           <ul>
             <li>
