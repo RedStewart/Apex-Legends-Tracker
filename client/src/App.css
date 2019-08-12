@@ -90,7 +90,7 @@ body {
 .legend-container {
   background: #020202;
   text-align: center;
-  padding: 1rem 1.5rem;
+  padding: 1rem 1rem;
   font-family: ApexMk2;
 }
 
@@ -147,25 +147,6 @@ body {
 }
 
 .mid-grid-item-minor span {
-  color: #fff;
-}
-
-.bot-grid {
-  text-align: left;
-  grid-gap: 1.5rem !important;
-}
-.bot-grid ul {
-  margin-bottom: 0;
-}
-
-.bot-grid li {
-  border-bottom: 1px solid #767676;
-  margin: 0.5rem 0;
-  color: #767676;
-}
-
-.bot-grid span {
-  float: right;
   color: #fff;
 }
 
