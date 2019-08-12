@@ -1,4 +1,16 @@
 @import '~antd/dist/antd.css';
+@font-face {
+  font-family: ApexMk2Bold;
+  src: url(./font/ApexMk2-BoldExtended.otf);
+}
+@font-face {
+  font-family: ApexMk2Light;
+  src: url(./font/ApexMk2-LightCondensed.otf);
+}
+@font-face {
+  font-family: ApexMk2;
+  src: url(./font/ApexMk2-Regular.otf);
+}
 
 :root {
   --primary-color: #953036;
@@ -79,10 +91,16 @@ body {
   background: #020202;
   text-align: center;
   padding: 1rem 1rem;
+  font-family: ApexMk2;
 }
 
 .legend-container h3 {
   color: #767676;
+}
+
+.legend-container h3 span {
+  display: block;
+  line-height: 0.5;
 }
 
 .top-grid {
@@ -98,14 +116,33 @@ body {
   border-right: none;
 }
 
-.top-grid-item h3 span {
-  display: block;
-  line-height: 0.5;
-}
-
 .top-grid-item p {
   font-size: 2.5rem;
   margin-bottom: 0;
+  line-height: 1;
+}
+
+.mid-grid {
+  margin: 2rem 0;
+}
+
+.mid-grid-main-dmg {
+  font-size: 3.25rem;
+  margin-bottom: 0rem;
+}
+
+.mid-grid-item-minor h3 {
+  font-size: 1.25rem;
+}
+
+.mid-grid-item-minor {
+  color: #767676;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.mid-grid-item-minor span {
+  color: #fff;
 }
 
 .grid-3 {

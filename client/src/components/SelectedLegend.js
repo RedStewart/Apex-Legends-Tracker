@@ -24,23 +24,31 @@ const SelectedLegend = () => {
         </div>
       </div>
 
-      <div className='grid-2'>
-        <div>
-          <h3>LIFETIME DAMAGE DEALT</h3>
-          <p>268,580</p>
-          <h4>HIGHEST</h4>
-          <p>1,537</p>
-          <h4>AVG</h4>
-          <p>271.29</p>
+      <div className='grid-2 mid-grid'>
+        <div className='mid-grid-item'>
+          <h3>
+            LIFETIME <span>DAMAGE DEALT</span>
+          </h3>
+          <p className='mid-grid-main-dmg'>268,580</p>
+          <p className='mid-grid-item-minor'>
+            HIGHEST <span>1,537</span>
+          </p>
+          <p className='mid-grid-item-minor'>
+            AVG <span>271.29</span>
+          </p>
         </div>
 
-        <div>
-          <h3>LIFETIME KILLS</h3>
-          <p>891</p>
-          <h4>DEATHS</h4>
-          <p>1,026</p>
-          <h4>K/DR</h4>
-          <p>0.86</p>
+        <div className='mid-grid-item'>
+          <h3>
+            LIFETIME <span>KILLS</span>
+          </h3>
+          <p className='mid-grid-main-dmg'>891</p>
+          <p className='mid-grid-item-minor'>
+            DEATHS <span>1,026</span>
+          </p>
+          <p className='mid-grid-item-minor'>
+            K/DR <span>0.86</span>
+          </p>
         </div>
       </div>
 
