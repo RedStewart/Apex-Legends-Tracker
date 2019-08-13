@@ -1,8 +1,11 @@
 import React, { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Button, Icon } from 'antd';
 import ProfileContext from '../context/profile/profileContext';
-import LegendSelect from './legendSelect/LegendSelect';
+// import LegendSelect from './legendSelect/LegendSelect';
+import SelectedLegend from './SelectedLegend';
+import LegendDisplay from './LegendDisplay';
+
+const image = require('../images/profile-bg.png');
 
 const Profile = ({ match }) => {
   const profileContext = useContext(ProfileContext);
@@ -17,6 +20,8 @@ const Profile = ({ match }) => {
   useEffect(() => {
     if (!profileData) {
       getProfile(match.params.platform, match.params.gamertag);
+    } else {
+      document.getElementById('page-bg').style.background = `url(${image})`;
     }
   }, []);
 
@@ -28,23 +33,25 @@ const Profile = ({ match }) => {
         <h1>Error</h1>
       ) : (
         <div>
-          <h1 className='gamertag'>
-            <img
-              src={profileData.platformInfo.avatarUrl}
-              alt=''
-              className='platform-avatar'
-            />
+          <h1 style={{ color: '#fff' }}>
+            {profileData.platformInfo.platformUserId}
           </h1>
-          <LegendSelect />
+          {/* <LegendSelect /> */}
+          <div className='grid-3'>
+            {/* Change the url for this to the active legend when created in context */}
+            <LegendDisplay legendUrl={profileData.segments[1].metadata} />
+            <SelectedLegend />
+            <SelectedLegend />
+          </div>
         </div>
       )}
 
-      <Link to='/' onClick={() => clearProfile()}>
+      <a href='/' onClick={() => clearProfile()}>
         <Button type='primary' size='large'>
           <Icon type='left' />
           Go Back
         </Button>
-      </Link>
+      </a>
     </div>
   );
 };
