@@ -19,8 +19,6 @@ const gameImage = require(`../../images/${
 const smokeImage = require('../../images/profile-bg.png');
 
 const BackgroundImage = ({ backgroundType }) => {
-  console.log(backgroundType);
-
   if (backgroundType === 'landing')
     return <div id='page-bg' style={{ background: `url(${gameImage})` }} />;
   else return <div id='page-bg' style={{ background: `url(${smokeImage})` }} />;
