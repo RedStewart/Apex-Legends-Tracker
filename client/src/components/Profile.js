@@ -1,11 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import { Button, Icon } from 'antd';
 import ProfileContext from '../context/profile/profileContext';
+import BackgroundImage from './layout/BackgroundImage';
 // import LegendSelect from './legendSelect/LegendSelect';
 import SelectedLegend from './SelectedLegend';
 import LegendDisplay from './LegendDisplay';
-
-const image = require('../images/profile-bg.png');
 
 const Profile = ({ match }) => {
   const profileContext = useContext(ProfileContext);
@@ -20,8 +19,6 @@ const Profile = ({ match }) => {
   useEffect(() => {
     if (!profileData) {
       getProfile(match.params.platform, match.params.gamertag);
-    } else {
-      document.getElementById('page-bg').style.background = `url(${image})`;
     }
   }, []);
 
@@ -29,6 +26,7 @@ const Profile = ({ match }) => {
 
   return (
     <div>
+      <BackgroundImage />
       {profileError ? (
         <h1>Error</h1>
       ) : (

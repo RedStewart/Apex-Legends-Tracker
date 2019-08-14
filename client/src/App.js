@@ -5,19 +5,20 @@ import ProfileState from './context/profile/ProfileState';
 import Search from './components/Search';
 import Profile from './components/Profile';
 import SideBar from './components/layout/SideBar';
+import BackgroundImage from './components/layout/BackgroundImage';
 import './App.css';
 
 const App = () => {
-  useEffect(() => {
-    document.getElementById('page-bg').style.background = `url(${image})`;
-  }, []);
+  // useEffect(() => {
+  //   document.getElementById('page-bg').style.background = `url(${image})`;
+  // }, []);
 
   return (
     <ProfileState>
       <AlertState>
         <Router>
-          {/* <SideBar /> */}
-          <div id='page-bg' />
+          {/* <div id='page-bg' /> */}
+          {/* <BackgroundImage backgroundType={'landing'} /> */}
           <div>
             <Switch>
               <Route exact path='/' component={SideBar} />
