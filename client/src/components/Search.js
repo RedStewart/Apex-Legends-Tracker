@@ -1,11 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Form, Icon, Input, Button, Select } from 'antd';
-import AlertContext from '../context/alert/alertContext';
 import ProfileContext from '../context/profile/profileContext';
-import Alert from './layout/Alert';
 
 const Search = ({ history, form }) => {
-  const alertContext = useContext(AlertContext);
   const profileContext = useContext(ProfileContext);
 
   const [formData, setFormData] = useState({
@@ -71,7 +68,6 @@ const Search = ({ history, form }) => {
             </label>
           )}
         </Form.Item>
-        <Alert />
         <Form.Item>
           {fetchData ? (
             <Button type='primary' size='large' className='btn-search' loading>
