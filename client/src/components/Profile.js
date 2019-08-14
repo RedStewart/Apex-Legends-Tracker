@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-import { Button, Icon } from 'antd';
+import React, { useContext, useEffect, Fragment } from 'react';
+import { Button, Icon, Spin } from 'antd';
 import { Link } from 'react-router-dom';
 import ProfileContext from '../context/profile/profileContext';
 import BackgroundImage from './layout/BackgroundImage';
@@ -22,10 +22,16 @@ const Profile = ({ match }) => {
     }
   }, []);
 
-  if (loading) return <h1>Loading</h1>;
+  if (loading)
+    return (
+      <Fragment>
+        <BackgroundImage />
+        <Spin size='large' />
+      </Fragment>
+    );
 
   return (
-    <div>
+    <Fragment>
       <BackgroundImage />
       {profileError ? (
         <h1>Error</h1>
@@ -49,7 +55,7 @@ const Profile = ({ match }) => {
           Go Back
         </Button>
       </Link>
-    </div>
+    </Fragment>
   );
 };
 
