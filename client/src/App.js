@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ProfileState from './context/profile/ProfileState';
-import Profile from './components/Profile';
+import Profile from './components/profile/Profile';
 import SideBar from './components/layout/SideBar';
 import './App.css';
 
