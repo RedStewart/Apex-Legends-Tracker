@@ -1,15 +1,13 @@
 import React from 'react';
+import avatar from '../../images/avatar.png';
+import rankedIcon from '../../images/ranked/diamond.png';
 
 const ProfileHeader = () => {
   return (
     <div className='profile-header'>
       <div className='grid-3'>
         <div className='header-item'>
-          <img
-            className='round-img'
-            src='./images/avatar.png'
-            alt='platform avatar'
-          />
+          <img className='round-img' src={avatar} alt='platform avatar' />
           <div>
             <h1>r33333d0</h1>
             <i className='fab fa-windows icon' />
@@ -17,11 +15,7 @@ const ProfileHeader = () => {
         </div>
 
         <div className='header-item'>
-          <img
-            className='round-img'
-            src='./images/ranked-icons/diamond.png'
-            alt='ranked icon'
-          />
+          <img className='round-img' src={rankedIcon} alt='ranked icon' />
           <h3>Diamond I</h3>
           <p>
             1069 <span>RP</span>
