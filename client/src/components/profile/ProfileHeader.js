@@ -3,7 +3,9 @@ import avatar from '../../images/avatar.png';
 import levelIcon from '../../images/level/100.png';
 import rankedIcon from '../../images/ranked/diamond.png';
 
-const ProfileHeader = () => {
+const ProfileHeader = ({ lifetimeStats }) => {
+  const { kills, level, matchesPlayed, rankScore } = lifetimeStats;
+
   return (
     <div className='profile-header'>
       <div className='grid-4'>
@@ -18,24 +20,29 @@ const ProfileHeader = () => {
         <div className='header-item'>
           <img className='round-img' src={levelIcon} alt='level icon' />
           <h3>Level</h3>
-          <p>1562</p>
+          <p>{level.displayValue}</p>
         </div>
 
         <div className='header-item'>
-          <img className='round-img' src={rankedIcon} alt='ranked icon' />
+          <img
+            className='round-img'
+            src={rankScore.metadata.iconUrl}
+            alt='ranked icon'
+          />
           <h3>Diamond I</h3>
           <p>
-            1069 <span>RP</span>
+            {rankScore.displayValue} <span>RP</span>
           </p>
         </div>
 
         <div className='header-item stats-header-outer'>
           <div className='stats-header-inner'>
             <p>Overall Kills</p>
-            <h2>1337</h2>
+            <h2>{kills.displayValue}</h2>
             <br />
-            <p>KDR</p>
-            <h2>0.85</h2>
+            <p>Games Played</p>
+
+            {matchesPlayed ? <h2>{matchesPlayed.displayValue}</h2> : <h2>-</h2>}
           </div>
         </div>
       </div>
