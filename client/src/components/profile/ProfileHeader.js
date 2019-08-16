@@ -36,25 +36,28 @@ const ProfileHeader = ({ lifetimeStats, platformInfo }) => {
         </div>
 
         <div className='header-item'>
-          <img
-            className='round-img'
-            src={
-              level.value < 20
-                ? require(`../../images/level/0-19.png`)
-                : level.value < 40
-                ? require(`../../images/level/20-39.png`)
-                : level.value < 60
-                ? require(`../../images/level/40-59.png`)
-                : level.value < 80
-                ? require(`../../images/level/60-79.png`)
-                : level.value < 100
-                ? require(`../../images/level/80-99.png`)
-                : require(`../../images/level/100.png`)
-            }
-            alt='level icon'
-          />
+          <div className='level-img-container'>
+            <img
+              className='round-img'
+              src={
+                level.value < 20
+                  ? require(`../../images/level/0-19.png`)
+                  : level.value < 40
+                  ? require(`../../images/level/20-39.png`)
+                  : level.value < 60
+                  ? require(`../../images/level/40-59.png`)
+                  : level.value < 80
+                  ? require(`../../images/level/60-79.png`)
+                  : level.value < 100
+                  ? require(`../../images/level/80-99.png`)
+                  : require(`../../images/level/100.png`)
+              }
+              alt='level icon'
+            />
+            <p>{level.value > 99 ? '' : level.value}</p>
+          </div>
           <h3>Level</h3>
-          <p>{level.value}</p>
+          <p className='level-text'>{level.value}</p>
         </div>
 
         <div className='header-item'>

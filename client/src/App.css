@@ -63,6 +63,7 @@ body {
 .icon {
   font-size: 2rem;
   margin-left: 1rem;
+  color: #da292a;
 }
 
 .header-item {
@@ -94,6 +95,22 @@ body {
 
 .header-item span {
   color: #767676;
+}
+
+.level-text {
+  color: #767676;
+}
+
+.level-img-container {
+  position: relative;
+}
+
+.level-img-container p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
 }
 
 .stats-header-outer {
