@@ -36,7 +36,10 @@ const Profile = ({ match }) => {
         <h1>Error</h1>
       ) : (
         <div className='profile-container'>
-          <ProfileHeader lifetimeStats={profileData.segments[0].stats} />
+          <ProfileHeader
+            lifetimeStats={profileData.segments[0].stats}
+            platformInfo={profileData.platformInfo}
+          />
         </div>
       )}
 

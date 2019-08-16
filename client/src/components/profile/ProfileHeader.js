@@ -1,26 +1,60 @@
 import React from 'react';
-import avatar from '../../images/avatar.png';
 import levelIcon from '../../images/level/100.png';
-import rankedIcon from '../../images/ranked/diamond.png';
 
-const ProfileHeader = ({ lifetimeStats }) => {
+const ProfileHeader = ({ lifetimeStats, platformInfo }) => {
   const { kills, level, matchesPlayed, rankScore } = lifetimeStats;
+  const { avatarUrl, platformSlug, platformUserId } = platformInfo;
+  // Parsing the rank
+  const rankName = rankScore.metadata.iconUrl
+    .replace('https://trackercdn.com/cdn/apex.tracker.gg/ranks/', '')
+    .replace('.png', '')
+    .replace(/[0-9]/g, '');
+  const rankDiv = rankScore.metadata.iconUrl.replace(
+    /(^.+\D)(\d+)(\D.+$)/i,
+    '$2'
+  );
+
+  console.log(parseInt(level.value));
 
   return (
     <div className='profile-header'>
       <div className='grid-4'>
         <div className='header-item'>
-          <img className='round-img' src={avatar} alt='platform avatar' />
+          <img className='round-img' src={avatarUrl} alt='platform avatar' />
           <div className='header-name'>
-            <h1>r33333d0</h1>
-            <i className='fab fa-windows icon' />
+            <h1>{platformUserId}</h1>
+            <i
+              className={`fab fa-${
+                platformSlug === 'origin'
+                  ? 'windows'
+                  : platformSlug === 'psn'
+                  ? 'playstation'
+                  : 'xbox'
+              } icon`}
+            />
           </div>
         </div>
 
         <div className='header-item'>
-          <img className='round-img' src={levelIcon} alt='level icon' />
+          <img
+            className='round-img'
+            src={
+              level.value < 20
+                ? require(`../../images/level/0-19.png`)
+                : level.value < 40
+                ? require(`../../images/level/20-39.png`)
+                : level.value < 60
+                ? require(`../../images/level/40-59.png`)
+                : level.value < 80
+                ? require(`../../images/level/60-79.png`)
+                : level.value < 100
+                ? require(`../../images/level/80-99.png`)
+                : require(`../../images/level/100.png`)
+            }
+            alt='level icon'
+          />
           <h3>Level</h3>
-          <p>{level.displayValue}</p>
+          <p>{level.value}</p>
         </div>
 
         <div className='header-item'>
@@ -29,7 +63,9 @@ const ProfileHeader = ({ lifetimeStats }) => {
             src={rankScore.metadata.iconUrl}
             alt='ranked icon'
           />
-          <h3>Diamond I</h3>
+          <h3>
+            {rankName === 'apex' ? 'Apex Predator' : rankName + ' ' + rankDiv}
+          </h3>
           <p>
             {rankScore.displayValue} <span>RP</span>
           </p>
