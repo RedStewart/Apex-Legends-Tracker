@@ -1,5 +1,4 @@
 import React from 'react';
-import levelIcon from '../../images/level/100.png';
 
 const ProfileHeader = ({ lifetimeStats, platformInfo }) => {
   const { kills, level, matchesPlayed, rankScore } = lifetimeStats;
@@ -13,8 +12,6 @@ const ProfileHeader = ({ lifetimeStats, platformInfo }) => {
     /(^.+\D)(\d+)(\D.+$)/i,
     '$2'
   );
-
-  console.log(parseInt(level.value));
 
   return (
     <div className='profile-header'>

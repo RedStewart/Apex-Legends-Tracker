@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, Fragment } from 'react';
+import uuid from 'uuid';
 import { Button, Icon, Spin } from 'antd';
 import { Link } from 'react-router-dom';
 import ProfileContext from '../../context/profile/profileContext';
@@ -20,6 +21,7 @@ const Profile = ({ match }) => {
     if (!profileData) {
       getProfile(match.params.platform, match.params.gamertag);
     }
+    //eslint-disable-next-line
   }, []);
 
   if (loading)
@@ -43,6 +45,16 @@ const Profile = ({ match }) => {
           />
           <div className='legend-container'>
             <div className='grid-3'>
+              {profileData.segments
+                .slice(1)
+                .map(legend =>
+                  legend.attributes.id !== 'legend_0' ? (
+                    <LegendItem key={uuid.v4()} legend={legend} />
+                  ) : (
+                    ''
+                  )
+                )}
+              {/* <LegendItem />
               <LegendItem />
               <LegendItem />
               <LegendItem />
@@ -51,8 +63,7 @@ const Profile = ({ match }) => {
               <LegendItem />
               <LegendItem />
               <LegendItem />
-              <LegendItem />
-              <LegendItem />
+              <LegendItem /> */}
             </div>
           </div>
         </div>

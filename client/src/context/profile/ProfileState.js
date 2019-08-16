@@ -6,7 +6,6 @@ import {
   GET_PROFILE,
   PROFILE_ERROR,
   CLEAR_ERROR,
-  SET_LOADING,
   FETCH_DATA,
   CLEAR_PROFILE
 } from '../types';
