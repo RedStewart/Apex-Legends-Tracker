@@ -66,7 +66,7 @@ const ProfileHeader = ({ lifetimeStats, platformInfo }) => {
             src={rankScore.metadata.iconUrl}
             alt='ranked icon'
           />
-          <h3>
+          <h3 style={rankName === 'apex' ? { color: '#da292a' } : {}}>
             {rankName === 'apex' ? 'Apex Predator' : rankName + ' ' + rankDiv}
           </h3>
           <p>

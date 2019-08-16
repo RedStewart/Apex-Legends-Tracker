@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import ProfileContext from '../../context/profile/profileContext';
 import BackgroundImage from '../layout/BackgroundImage';
 import ProfileHeader from './ProfileHeader';
+import LegendItem from './LegendItem';
 
 const Profile = ({ match }) => {
   const profileContext = useContext(ProfileContext);
@@ -40,6 +41,20 @@ const Profile = ({ match }) => {
             lifetimeStats={profileData.segments[0].stats}
             platformInfo={profileData.platformInfo}
           />
+          <div className='legend-container'>
+            <div className='grid-3'>
+              <LegendItem />
+              <LegendItem />
+              <LegendItem />
+              <LegendItem />
+              <LegendItem />
+              <LegendItem />
+              <LegendItem />
+              <LegendItem />
+              <LegendItem />
+              <LegendItem />
+            </div>
+          </div>
         </div>
       )}
 
