@@ -43,7 +43,14 @@ const Profile = ({ match }) => {
             lifetimeStats={profileData.segments[0].stats}
             platformInfo={profileData.platformInfo}
           />
-          <hr style={{ borderColor: '#da292a' }} />
+          <hr
+            style={{
+              border: 'none',
+              height: '4px',
+              color: '#da292a',
+              backgroundColor: '#da292a'
+            }}
+          />
           <div className='legend-container'>
             <div className='grid-3'>
               {profileData.segments

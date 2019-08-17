@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card } from 'antd';
+import uuid from 'uuid';
 
 const LegendItem = ({ legend }) => {
-  const { Meta } = Card;
+  // console.log(legend.stats);
 
   return (
     <div className='legend-item'>
@@ -14,27 +14,18 @@ const LegendItem = ({ legend }) => {
           alt='legend'
         />
       </div>
-      {/* <Card className='legend-content'>
-        <Card.Grid style={gridStyle}>
-          <h2>Season 1 Wins</h2>
-          <p>1337</p>
-        </Card.Grid>
-        <Card.Grid style={gridStyle}>
-          <h2>Kills</h2>
-          <p>1337</p>
-        </Card.Grid>
-        <Card.Grid style={gridStyle}>
-          <h2>Kills</h2>
-          <p>1337</p>
-        </Card.Grid>
-        <Card.Grid style={gridStyle}>
-          <h2>Kills</h2>
-          <p>1337</p>
-        </Card.Grid>
-      </Card> */}
+
       <div className='legend-content'>
-        <div className='grid-2'>
-          <div>
+        {/* <div className='grid-2'> */}
+        <div className='flexbox'>
+          {Object.values(legend.stats).map(statGroup => (
+            <div key={uuid.v4()}>
+              <h2>{statGroup.displayName}</h2>
+              <p>{statGroup.displayValue}</p>
+            </div>
+          ))}
+
+          {/* <div>
             <h2>Season 1 Wins</h2>
             <p>1337</p>
           </div>
@@ -45,16 +36,11 @@ const LegendItem = ({ legend }) => {
           <div>
             <h2>Kills</h2>
             <p>1337</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
   );
-};
-
-const gridStyle = {
-  width: '50%',
-  textAlign: 'center'
 };
 
 export default LegendItem;
