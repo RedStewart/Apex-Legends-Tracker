@@ -61,6 +61,15 @@
   grid-gap: 1rem;
 }
 
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flexbox div {
+  flex: 1 1 50%;
+}
+
 #page-bg {
   position: fixed;
   width: 100%;
@@ -241,7 +250,6 @@
 }
 
 .legend-name-container {
-  height: 100%;
   position: relative;
 }
 .legend-name-container h1 {
@@ -281,13 +289,4 @@
 .ant-card-grid {
   box-shadow: none !important;
   padding: 0;
-}
-
-.flexbox {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.flexbox div {
-  flex: 1 1 50%;
 }
