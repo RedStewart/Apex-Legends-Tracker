@@ -79,6 +79,22 @@
   z-index: -2;
 }
 
+.navbar {
+  padding: 0 1rem;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  height: 40px;
+}
+
+.navbar h1 {
+  color: #fff;
+  font-family: ApexMk2;
+  font-size: 1.5rem;
+}
+
 .profile-container {
   max-width: 1100px;
   margin: auto;
@@ -90,7 +106,7 @@
   background: #020202;
   color: #fff;
   border-radius: 5px;
-  margin-top: 3rem;
+  margin-top: 4rem;
   background: rgba(0, 0, 0, 0.25);
   padding-bottom: 25px;
 }
@@ -242,6 +258,10 @@
   text-align: center;
 }
 
+.legend-item:last-child {
+  margin-bottom: 20px;
+}
+
 .legend-img {
   position: relative;
   max-width: 350px;
@@ -289,4 +309,13 @@
 .ant-card-grid {
   box-shadow: none !important;
   padding: 0;
+}
+
+/* NAVBAR FORM */
+.navbar-form-input {
+  width: 200px !important;
+}
+
+.navbar-btn {
+  width: 150px;
 }

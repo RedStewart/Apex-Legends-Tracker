@@ -3,6 +3,7 @@ import uuid from 'uuid';
 import { Button, Icon, Spin } from 'antd';
 import { Link } from 'react-router-dom';
 import ProfileContext from '../../context/profile/profileContext';
+import NavBar from '../layout/NavBar';
 import BackgroundImage from '../layout/BackgroundImage';
 import ProfileHeader from './ProfileHeader';
 import LegendItem from './LegendItem';
@@ -34,6 +35,7 @@ const Profile = ({ match }) => {
 
   return (
     <Fragment>
+      <NavBar />
       <BackgroundImage />
       {profileError ? (
         <h1>Error</h1>
@@ -62,16 +64,6 @@ const Profile = ({ match }) => {
                     ''
                   )
                 )}
-              {/* <LegendItem />
-              <LegendItem />
-              <LegendItem />
-              <LegendItem />
-              <LegendItem />
-              <LegendItem />
-              <LegendItem />
-              <LegendItem />
-              <LegendItem />
-              <LegendItem /> */}
             </div>
           </div>
         </div>

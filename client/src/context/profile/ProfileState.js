@@ -7,7 +7,8 @@ import {
   PROFILE_ERROR,
   CLEAR_ERROR,
   FETCH_DATA,
-  CLEAR_PROFILE
+  CLEAR_PROFILE,
+  SET_LOADING
 } from '../types';
 
 const ProfileState = props => {
@@ -50,6 +51,8 @@ const ProfileState = props => {
   // Clear profile
   const clearProfile = () => dispatch({ type: CLEAR_PROFILE });
 
+  const setLoading = () => dispatch({ type: SET_LOADING });
+
   return (
     <ProfileContext.Provider
       value={{
@@ -58,7 +61,8 @@ const ProfileState = props => {
         loading: state.loading,
         fetchData: state.fetchData,
         getProfile,
-        clearProfile
+        clearProfile,
+        setLoading
       }}
     >
       {props.children}

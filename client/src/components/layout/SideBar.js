@@ -34,17 +34,7 @@ const SideBar = ({ history, form }) => {
   return (
     <Fragment>
       <BackgroundImage backgroundType={'landing'} />
-      <Sider
-        breakpoint='lg'
-        collapsedWidth='0'
-        onBreakpoint={broken => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
-        }}
-        className='sider'
-      >
+      <Sider className='sider'>
         <Form onSubmit={e => onSubmit(e)}>
           <Form.Item>
             <img

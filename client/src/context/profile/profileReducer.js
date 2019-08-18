@@ -3,7 +3,8 @@ import {
   PROFILE_ERROR,
   FETCH_DATA,
   CLEAR_ERROR,
-  CLEAR_PROFILE
+  CLEAR_PROFILE,
+  SET_LOADING
 } from '../types';
 
 export default (state, action) => {
@@ -36,6 +37,12 @@ export default (state, action) => {
         ...state,
         profileError: null,
         profileData: null
+      };
+
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: true
       };
 
     default:
