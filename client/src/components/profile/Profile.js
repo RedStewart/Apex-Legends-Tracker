@@ -25,12 +25,18 @@ const Profile = ({ match }) => {
     //eslint-disable-next-line
   }, []);
 
+  const loadIcon = <Icon type='loading' style={{ fontSize: '5rem' }} spin />;
+
   if (loading)
     return (
       <Fragment>
         <NavBar />
         <BackgroundImage />
-        <Spin size='large' />
+        <div className='profile-container'>
+          <div className='spinner'>
+            <Spin indicator={loadIcon} tip='Loading...' />
+          </div>
+        </div>
       </Fragment>
     );
 
@@ -40,6 +46,14 @@ const Profile = ({ match }) => {
       <BackgroundImage />
       {profileError || profileData === null ? (
         <div className='profile-container'>
+          <div className='error'>
+            <h1>
+              <i className='fas fa-exclamation-triangle' />
+              Error
+            </h1>
+            <p>Profile not found</p>
+          </div>
+
           <Link to='/' onClick={() => clearProfile()}>
             <Button
               type='primary'
@@ -54,8 +68,6 @@ const Profile = ({ match }) => {
               Go Back
             </Button>
           </Link>
-          <h1>Error</h1>
-          <p>Profile not found</p>
         </div>
       ) : (
         <div className='profile-container'>

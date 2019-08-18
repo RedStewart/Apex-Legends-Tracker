@@ -101,6 +101,33 @@
 .btn {
   font-family: ApexMk2;
 }
+
+.error {
+  color: #767676;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
+
+.error h1 {
+  color: #fff;
+  margin: 0;
+}
+
+.error i {
+  margin-right: 1rem;
+  color: #da292a;
+}
+
+.spinner {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.ant-spin-text {
+  font-size: 2rem;
+}
+
 /* PROFILE HEADER */
 
 .profile-header {
