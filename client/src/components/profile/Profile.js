@@ -29,7 +29,6 @@ const Profile = ({ match }) => {
     return (
       <Fragment>
         <NavBar />
-
         <BackgroundImage />
         <Spin size='large' />
       </Fragment>
@@ -39,8 +38,25 @@ const Profile = ({ match }) => {
     <Fragment>
       <NavBar />
       <BackgroundImage />
-      {profileError ? (
-        <h1>Error</h1>
+      {profileError || profileData === null ? (
+        <div className='profile-container'>
+          <Link to='/' onClick={() => clearProfile()}>
+            <Button
+              type='primary'
+              size='large'
+              style={{
+                marginTop: '0.5rem',
+                marginBottom: '0.5rem',
+                marginLeft: '1rem'
+              }}
+            >
+              <Icon type='left' />
+              Go Back
+            </Button>
+          </Link>
+          <h1>Error</h1>
+          <p>Profile not found</p>
+        </div>
       ) : (
         <div className='profile-container'>
           <Link to='/' onClick={() => clearProfile()}>

@@ -30,7 +30,7 @@ const NavBarForm = () => {
       setLoading();
       setValidationStatus('');
       clearProfile();
-      getProfile(platform, gamertag, false);
+      getProfile(platform, gamertag, true);
     }
   };
 
