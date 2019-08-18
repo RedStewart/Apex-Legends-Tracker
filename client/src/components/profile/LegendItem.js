@@ -16,7 +16,6 @@ const LegendItem = ({ legend }) => {
       </div>
 
       <div className='legend-content'>
-        {/* <div className='grid-2'> */}
         <div className='flexbox'>
           {Object.values(legend.stats).map(statGroup => (
             <div key={uuid.v4()}>
@@ -24,19 +23,6 @@ const LegendItem = ({ legend }) => {
               <p>{statGroup.displayValue}</p>
             </div>
           ))}
-
-          {/* <div>
-            <h2>Season 1 Wins</h2>
-            <p>1337</p>
-          </div>
-          <div>
-            <h2>Kills</h2>
-            <p>1337</p>
-          </div>
-          <div>
-            <h2>Kills</h2>
-            <p>1337</p>
-          </div> */}
         </div>
       </div>
     </div>

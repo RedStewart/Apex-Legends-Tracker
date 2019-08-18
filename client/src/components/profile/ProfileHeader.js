@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProfileHeader = ({ lifetimeStats, platformInfo }) => {
+const ProfileHeader = ({ lifetimeStats, platformInfo, activeLegend }) => {
   const { kills, level, matchesPlayed, rankScore } = lifetimeStats;
   const { avatarUrl, platformSlug, platformUserId } = platformInfo;
   // Parsing the rank
@@ -76,9 +76,10 @@ const ProfileHeader = ({ lifetimeStats, platformInfo }) => {
             <p>Overall Kills</p>
             <h2>{kills.displayValue}</h2>
             <br />
-            <p>Games Played</p>
+            <p>Active Legend</p>
+            <h2>{activeLegend}</h2>
 
-            {matchesPlayed ? <h2>{matchesPlayed.displayValue}</h2> : <h2>-</h2>}
+            {/* {matchesPlayed ? <h2>{matchesPlayed.displayValue}</h2> : <h2>-</h2>} */}
           </div>
         </div>
       </div>

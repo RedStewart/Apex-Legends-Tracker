@@ -28,6 +28,8 @@ const Profile = ({ match }) => {
   if (loading)
     return (
       <Fragment>
+        <NavBar />
+
         <BackgroundImage />
         <Spin size='large' />
       </Fragment>
@@ -41,9 +43,24 @@ const Profile = ({ match }) => {
         <h1>Error</h1>
       ) : (
         <div className='profile-container'>
+          <Link to='/' onClick={() => clearProfile()}>
+            <Button
+              type='primary'
+              size='large'
+              style={{
+                marginTop: '0.5rem',
+                marginBottom: '0.5rem',
+                marginLeft: '1rem'
+              }}
+            >
+              <Icon type='left' />
+              Go Back
+            </Button>
+          </Link>
           <ProfileHeader
             lifetimeStats={profileData.segments[0].stats}
             platformInfo={profileData.platformInfo}
+            activeLegend={profileData.metadata.activeLegendName}
           />
           <hr
             style={{
@@ -68,13 +85,6 @@ const Profile = ({ match }) => {
           </div>
         </div>
       )}
-
-      <Link to='/' onClick={() => clearProfile()}>
-        <Button type='primary' size='large'>
-          <Icon type='left' />
-          Go Back
-        </Button>
-      </Link>
     </Fragment>
   );
 };

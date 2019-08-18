@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import ProfileContext from '../../context/profile/profileContext';
 import { Icon, Input, Form, Select, Button } from 'antd';
 const { Option } = Select;
@@ -29,15 +30,18 @@ const NavBarForm = () => {
       setLoading();
       setValidationStatus('');
       clearProfile();
-      getProfile(platform, gamertag, true);
+      getProfile(platform, gamertag, false);
     }
   };
 
   return (
     <Form layout='inline' onSubmit={e => onSubmit(e)}>
-      <Form.Item>
-        <h1>- Apex Legends Tracker -</h1>
-      </Form.Item>
+      <Link to='/' onClick={() => clearProfile()}>
+        <Form.Item>
+          <h1>- Apex Legends Tracker -</h1>
+        </Form.Item>
+      </Link>
+
       <div style={{ float: 'right' }}>
         <Form.Item validateStatus={validationStatus} hasFeedback>
           <Input
@@ -64,7 +68,7 @@ const NavBarForm = () => {
           </Select>
         </Form.Item>
 
-        <Form.Item>
+        <Form.Item className='btn'>
           {fetchData ? (
             <Button type='primary' className='navbar-btn' loading>
               Loading...

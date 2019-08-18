@@ -81,9 +81,6 @@
 
 .navbar {
   padding: 0 1rem;
-  position: fixed;
-  top: 0;
-  z-index: 100;
   width: 100%;
   background: rgba(0, 0, 0, 0.4);
   height: 40px;
@@ -100,13 +97,16 @@
   margin: auto;
   font-family: ApexMk2;
 }
+
+.btn {
+  font-family: ApexMk2;
+}
 /* PROFILE HEADER */
 
 .profile-header {
   background: #020202;
   color: #fff;
   border-radius: 5px;
-  margin-top: 4rem;
   background: rgba(0, 0, 0, 0.25);
   padding-bottom: 25px;
 }
@@ -188,15 +188,13 @@
 
 .stats-header-inner h2 {
   border-bottom: 4px solid #da292a;
-  font-size: 2.25rem;
+  font-size: 1.8rem;
   color: #fff;
 }
 .stats-header-inner p {
   font-size: 1.1rem;
   color: #767676;
 }
-
-/*  */
 
 /* Custom */
 
@@ -295,7 +293,8 @@
 }
 
 .legend-content p {
-  margin: 0;
+  /* margin: 0; */
+  margin-bottom: 1rem;
   color: #fff;
   font-size: 1.5rem;
 }
@@ -318,4 +317,5 @@
 
 .navbar-btn {
   width: 150px;
+  border: none;
 }
