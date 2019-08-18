@@ -248,10 +248,12 @@
   color: #fff;
   font-size: 1.1rem;
   font-weight: 500;
+  font-family: ApexMk2;
 }
 
 .select-search {
   width: 100%;
+  font-family: ApexMk2;
 }
 
 .form-img {
@@ -272,6 +274,7 @@
 .btn-search {
   width: 100%;
   margin-top: 1.25rem;
+  font-family: ApexMk2;
 }
 
 /* LEGEND ITEM */
@@ -340,6 +343,7 @@
 /* NAVBAR FORM */
 .navbar-form-input {
   width: 200px !important;
+  font-family: ApexMk2;
 }
 
 .navbar-btn {
