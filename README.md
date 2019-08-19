@@ -15,3 +15,4 @@ The app uses useContext + useState hooks for state managment and includes some s
 - [ ] Sort how the Legends are displayed e.g. Alphabetical, Most Popular
 - [ ] Highlight the current active legend
 - [ ] Add ranking for each statistic
+- [ ] Better responsive mobile design
